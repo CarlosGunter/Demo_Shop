@@ -4,68 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/shelf.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Demo</title>
 </head>
 <body>
     
     <header>
+        <!-- Barra superior -->
         <div class="top">
-            <span class="material-symbols-outlined">
-                skull
-            </span>
-            <div class="search">
-                <label for="">Search</label>
-                <input type="text">
+            <div>
                 <span class="material-symbols-outlined">
-                    search
+                    skull
+                </span>
+            </div>
+            <div>
+                <div class="top_search">
+                    <label for="">Search</label>
+                    <input type="text">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </div>
+                <span class="material-symbols-outlined" id="addCart">
+                    shopping_cart
+                </span>
+                <span class="material-symbols-outlined">
+                    account_circle
                 </span>
             </div>
         </div>
         <!-- Menu -->
-        <nav class="menu">
-            <ul>
-                <li><a href="#" class="nav_section">Home</a></li>
+        <nav class="nav">
+            <ul class="nav_list" id="nav">
+                <!-- <li><a href="#" class="nav_section">Home</a></li>
                 <li>
                     <a href="#" class="nav_section">Section A</a>
-                    <ul class="submenu">
+                    <ul class="nav_submenu">
                         <li><a href="#">Subsection A1</a></li>
                         <li><a href="#">Subsection A2</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#" class="nav_section">Section B</a>
-                    <ul class="submenu">
-                        <li><a href="#">Subsection B1</a></li>
-                        <li><a href="#">Subsection B2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="nav_section">Section C</a>
-                    <ul class="submenu">
-                        <li><a href="#">Subsection C1</a></li>
-                        <li><a href="#">Subsection C2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="nav_section">Section D</a>
-                    <ul class="submenu">
-                        <li><a href="#">Subsection D1</a></li>
-                        <li><a href="#">Subsection D2</a></li>
-                    </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </header>
 
+    <!-- Contenido Principal -->
     <section class="objects" id="objects">
-
+        <!-- <div class="obj_product">
+            <img src="../img/shirt.webp" alt="img">
+            <label class="obj_name">Product ${i}</label>
+            <div class="shop">
+                <div>
+                    <span class="material-symbols-outlined" id="addCart">
+                        shopping_cart
+                    </span>
+                    <div class="obj_amout">
+                        <button type="button" value="min" id="-">-</button>
+                        <input type="text" value="1" id="amoutI">
+                        <button type="button" value="plus" id="+">+</button>
+                    </div>
+                    <p>Sz:</p>
+                    <div class="obj_size">
+                        <input type="text" readonly value="S" id="sizeI">
+                        <div class="obj_slcSz">
+                            <p id="selectSz">S</p>
+                            <p id="selectSz">M</p>
+                            <p id="selectSz">L</p>
+                            <p id="selectSz">2L</p>
+                        </div>
+                    </div>
+                </div>
+                <p>Price</p>
+            </div>
+        </div> -->
     </section>
 
     <footer>
         
     </footer>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/shelf.js"></script>
 </body>
 </html>
+
+<!-- Elementos planeados
+    - Agregar opcion talla
+    - Aumentar tamaño de imagen
+    - Agregar opcion cantidad
+    - Independizar estilos y script de header
+    - Logica de BEM
+    - Commit
+    - Icono hipotetico
+    - Footer
+    - Mejorar menu
+    - Commit
+    - Typescript
+    - Barra de scroll
+    - Resolucion movil y otros
+        - Menu lateral
+        - Search como boton
+    - Commit
+    - Pagina Producto
+    - Commit
+    - Pagina Home
+    - Pagina Sing In  & Login
+    - Commit
+    - Implementacion de React
+    - Sistema de numero de pagina
+    - Asignacion hipotetica de valores (nombre, precio, etc.)
+    - BackEnd
+-->

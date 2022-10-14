@@ -1,21 +1,58 @@
-var product, container;
-container = document.getElementById("objects");
+//   === === Menu === ===
 
-for (var i = 0; i < 11; i++) {
-    if(container.childNodes[0].wholeText == 'undefined') {
-        product =
-        '<div class="product">\
-            <a href="#"><img src="../img.png" alt="img"></a>\
-            <label class="description">Product ' + i + '<span>$1000</span></label>\
-        </div>';
-    } else {
-        product +=
-        '<div class="product">\
-            <a href="#"><img src="../img.png" alt="img"></a>\
-            <label class="description">Product ' + i + '<span>$1000</span></label>\
-        </div>';
+const sections = [
+    {
+        "title": "Man",
+        "subsection": [
+            "Basics",
+            "Shirts",
+            "Pants",
+            "Shorts"
+        ]
+    },
+
+    {
+        "title": "Woman",
+        "subsection": [
+            "Basics",
+            "Shirts",
+            "Pants"
+        ]
+    },
+
+    {
+        "title": "Kids",
+        "subsection": [
+            "Basics",
+            "Shirts",
+            "Pants"
+        ]
+    },
+
+    {
+        "title": "Baby",
+        "subsection": [
+            "Shirts",
+            "Pants"
+        ]
     }
-    
-    container.innerHTML = product;
+]
 
-}
+let txtSec, text = `<li><a href="#" class="nav_section">Home</a></li>`
+const nav = document.getElementById('nav')
+
+sections.forEach(element=> {
+    txtSec = ''
+    element.subsection.forEach(subElement => {
+        txtSec += `<li><a href="#">${subElement}</a></li>`
+    });
+    text +=
+    `<li>
+        <a href="#" class="nav_section">${element.title}</a>
+        <ul class="nav_submenu">
+            ${txtSec}
+        </ul>
+    </li>`
+});
+nav.innerHTML = text
+
