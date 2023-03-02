@@ -10,22 +10,22 @@ for (var i = 1; i <= 20; i++) {
         <label class="obj_name">Product ${i}</label>
         <div class="obj_shop">
             <div>
-                <span class="material-symbols-outlined" id="addCart">
+                <span class="material-symbols-outlined bg-hov" id="addCart">
                     shopping_cart
                 </span>
                 <div class="obj_amout">
-                    <button type="button" value="min" id="-">-</button>
+                    <button type="button" value="min" class="bg-hov" id="-">-</button>
                     <input type="text" value="1" id="amoutI">
-                    <button type="button" value="plus" id="+">+</button>
+                    <button type="button" value="plus" class="bg-hov" id="+">+</button>
                 </div>
                 <p>Sz:</p>
                 <div class="obj_size">
-                    <input type="text" readonly value="S" id="sizeI">
+                    <input type="text" readonly value="S" class="bg-hov" id="sizeI">
                     <div class="obj_slcSz">
-                        <p id="selectSz">S</p>
-                        <p id="selectSz">M</p>
-                        <p id="selectSz">L</p>
-                        <p id="selectSz">2L</p>
+                        <p class="bg-hov" id="selectSz">S</p>
+                        <p class="bg-hov" id="selectSz">M</p>
+                        <p class="bg-hov" id="selectSz">L</p>
+                        <p class="bg-hov" id="selectSz">2L</p>
                     </div>
                 </div>
             </div>
@@ -45,23 +45,24 @@ container.addEventListener('click', e => {
             e.target.nextElementSibling.classList.toggle('obj_selectSz-active')
         }
         if (e.target.id === 'selectSz') {
-            e.path[2].childNodes[1].value = e.target.innerHTML
-            e.path[1].classList.toggle('obj_selectSz-active')
+            e.target.parentElement.parentElement.childNodes[1].value = e.target.innerHTML
+            e.target.parentElement.classList.toggle('obj_selectSz-active')
         }
 
         // === === Variacion de cantidad === ===
         if (e.target.id === '+' || e.target.id === '-') {
-            amout = e.path[1].childNodes[3].value
+            // console.log(e)
+            amout = e.target.parentNode.childNodes[3].value
             amout = parseInt(amout)
             
             if (e.target.id === '+' && amout < 100) {
                 amout++
-                e.path[1].childNodes[3].value = amout
+                e.target.previousElementSibling.value = amout
             }else if (e.target.id === '-' && amout > 1) {
                 amout--
-                e.path[1].childNodes[3].value = amout
+                e.target.nextElementSibling.value = amout
             }else {
-                e.path[1].childNodes[3].value = 1
+                e.target.parentNode.childNodes[3].value = 1
             }
         }
     }

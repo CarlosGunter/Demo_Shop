@@ -6,8 +6,8 @@
 :root {
     
     /* === === Paleta de colores === === */
-    --color-base: #262525;
-    --color-prim: #181818;
+    --color-prim: #262525;
+    --color-base: #181818;
     /* --color-sec: #1c8080; */
     --color-sec: #5259F4;
     --color-text: #fff;
@@ -36,4 +36,7 @@ a:visited {
     color: var(--color-text);
     text-decoration: none;
     margin: 0;
+}
+li {
+    list-style: none;
 }
