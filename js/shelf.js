@@ -1,11 +1,10 @@
 // === === Principal === ===
-
 let product = ''
 const container = document.getElementById("objects")
 
 for (var i = 1; i <= 20; i++) {
     product +=
-    `<div class="obj_product">
+        `<div class="obj_product">
         <img src="../img/shirt.webp" alt="img">
         <label class="obj_name">Product ${i}</label>
         <div class="obj_shop">
@@ -51,19 +50,26 @@ container.addEventListener('click', e => {
 
         // === === Variacion de cantidad === ===
         if (e.target.id === '+' || e.target.id === '-') {
-            // console.log(e)
             amout = e.target.parentNode.childNodes[3].value
             amout = parseInt(amout)
-            
+
             if (e.target.id === '+' && amout < 100) {
                 amout++
                 e.target.previousElementSibling.value = amout
-            }else if (e.target.id === '-' && amout > 1) {
+            } else if (e.target.id === '-' && amout > 1) {
                 amout--
                 e.target.nextElementSibling.value = amout
-            }else {
+            } else {
                 e.target.parentNode.childNodes[3].value = 1
             }
         }
+
+        // === === Intruducir solo numeros en el campo cantidad === ===
+        if (e.target.id === 'amoutI') {
+            e.target.addEventListener("keyup", k => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '')
+            })
+        }
     }
+    
 })

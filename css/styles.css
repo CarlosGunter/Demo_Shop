@@ -1,17 +1,12 @@
-
-/* === === Fonts === === */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
-
-/* === === Variables === === */
-:root {
-    
-    /* === === Paleta de colores === === */
-    --color-prim: #262525;
-    --color-base: #181818;
-    /* --color-sec: #1c8080; */
-    --color-sec: #5259F4;
-    --color-text: #fff;
-
+/* === === ScrollBar === === */
+:root::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+}
+:root::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: var(--color-prim);
+    border-radius: 10px;
 }
 
 /* === === Global === === */
@@ -24,7 +19,6 @@
     border: 1px solid var(--color-text);
     outline: none;
     position: relative;
-    z-index: 10;
     transition: 500ms;
 }
 .txt-hov,
@@ -38,16 +32,21 @@
     background: var(--color-sec);
     color: var(--color-text);
 }
-
+header {
+    position: relative;
+}
 /* === === Barra Superior === === */
 .top {
-    padding: 0.5rem 1.5rem;
+    position: fixed;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
-    position: relative;
-    border-bottom-style: solid;
-    border-color: var(--color-prim);
+    padding: 1rem 5vw;
+    width: 100%;
+    background: var(--color-base);
+    /* border-bottom-style: solid;
+    border-color: var(--color-prim); */
+    z-index: 1;
 }
 .top > div {
     display: flex;
@@ -56,6 +55,9 @@
     gap: 20px;
 }
 
+.top_logo {
+    width: min-content;
+}
 .top_circle {
     position: relative;
     display: flex;
@@ -108,7 +110,6 @@
 .top_icon {
     position: absolute;
     width: 50px;
-    z-index: 100;
 }
 
 .top_search {
@@ -121,7 +122,6 @@
     position: absolute;
     right: 0.5rem;
     top: 0.25rem;
-    z-index: 9;
 }
 
 /* === === Menu === === */
@@ -144,16 +144,16 @@
 }
 
 .nav_submenu {
-    background: var(--color-base);
+    background: var(--color-prim);
     display: grid;
     grid-template-columns: repeat(2, 4fr) 1fr;
     position: absolute;
     justify-content: space-around;
     width: 100%;
     left: 0;
-    top: 100%;
+    top: 80%;
     padding: 20px 600px;
-    z-index: 9;
+    z-index: 1;
     transition: 100ms;
     visibility: hidden;
 }
@@ -176,7 +176,7 @@
 /* === === Footer === === */
 footer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     gap: 1rem;
     background: var(--color-prim);
     padding: 2rem 6rem;
@@ -194,7 +194,8 @@ footer {
 }
 
 .ftr_nl {
-    width: fit-content;
+    display: flex;
+    justify-content: center;
     background: var(--color-base);
     padding: 1.2rem;
     border-radius: 10px;
@@ -234,4 +235,77 @@ footer {
 .ftr_sub span {
     padding: 8px;
 }
+
 /* === === Mediaquery === === */
+@media screen and (max-width: 900px) {
+    .top_search .inputStyle {
+        display: none;
+    }
+    
+    .top {
+        padding: 1rem 1rem;
+        grid-template-columns: repeat(2, min-content) 1fr;
+        gap: 5px;
+    }
+    .top_icon_menu {
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;
+    }
+    .top_search span {
+        position: relative;
+        display: grid;
+        place-content: center;
+        top: 0;
+        right: 0;
+    }
+
+    .nav {
+        position: absolute;
+        grid-template-columns: 1fr;
+        background: var(--color-prim);
+        visibility: hidden;
+        width: 80vw;
+        height: 100vh;
+        top: 0;
+        left: -100%;
+        z-index: 1;
+        transition: 1s;
+    }
+    .nav-open {
+        display: grid;
+        visibility: visible;
+        left: 0;
+    }
+    .nav_list {
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 10px;
+    }
+    .nav_list-submenu {
+        display: none;
+    }
+
+    .nav_submenu {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        position: initial;
+        padding: 0.5rem;
+        height: min-content;
+    }
+    .nav_submenu i {
+        font-size: 2rem;
+        padding: 5px;
+        width: min-content;
+    }
+
+
+    footer {
+        padding: 3.5rem 2rem;
+        gap: 3rem;
+    }
+
+    .ftr_icons {
+        top: 1rem;
+    }
+}

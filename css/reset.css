@@ -8,8 +8,8 @@
     /* === === Paleta de colores === === */
     --color-prim: #262525;
     --color-base: #181818;
-    /* --color-sec: #1c8080; */
-    --color-sec: #5259F4;
+    /* --color-sec: #5259F4; */
+    --color-sec: #1c8080;
     --color-text: #fff;
 
 }
@@ -25,7 +25,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    margin: 1rem 5vh;
+    width: calc(100vw - 12px);
     background-color: var(--color-base);
     color: var(--color-text);
     font-family: 'Poppins', sans-serif;
@@ -39,4 +39,10 @@ a:visited {
 }
 li {
     list-style: none;
+}
+
+@media (max-width: 900px) {
+    body {
+        margin: 0;
+    }
 }
